@@ -1,0 +1,22 @@
+{
+  "name": "Echo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@discordjs/opus": "^0.3.2",
+    "discord.js": "^12.4.0",
+    "dotenv": "^8.2.0",
+    "ffmpeg": "0.0.4",
+    "ffmpeg-static": "^4.2.7",
+    "simple-youtube-api": "^5.2.1",
+    "ytdl-core": "^3.4.1",
+    "ytdl-core-discord": "^1.2.3"
+  }
+}
