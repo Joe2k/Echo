@@ -38,6 +38,7 @@ client.on("message", async msg => {
        if(url==="")
            return msg.channel.send("No song name or link passed!");
 
+       msg.react('🤟');
        try{
            var video= await youtube.getVideo(url);
        }
@@ -65,6 +66,7 @@ client.on("message", async msg => {
 
         if (url === "")
             return msg.channel.send("No song name or link passed!");
+        msg.react('🔍');
 
            youtube.searchVideos(url, 5)
                .then(videos => {
@@ -126,6 +128,7 @@ client.on("message", async msg => {
             //console.log(err);
             return msg.channel.send("Invalid link!");
         }
+        msg.react('📰');
         const playlist = await youtube.getPlaylist(url);
         const videos = await playlist.getVideos();
         //console.log(videos[0]);
@@ -142,6 +145,7 @@ client.on("message", async msg => {
        if(!voiceChannel) return msg.channel.send("You must be present in the voice channel to skip music!");
        //console.log(serverQueue.songs);
         if(!serverQueue) return msg.channel.send("There is no song in the queue to skip");
+        msg.react('👌');
         serverQueue.connection.dispatcher.destroy();
        //console.log("Song ended");
        serverQueue.songs.shift();
@@ -154,6 +158,7 @@ client.on("message", async msg => {
         if (!voiceChannel) return msg.channel.send("You must be present in the voice channel to remove music!");
         //console.log(serverQueue.songs);
         if (!serverQueue) return msg.channel.send("There is no song in the queue to remove");
+        msg.react('🗑️');
         if(parseInt(url)>0 && parseInt(url)<serverQueue.songs.length){
             const songtitle = serverQueue.songs[parseInt(url)].title;
             serverQueue.songs.splice(parseInt(url),1);
@@ -168,6 +173,7 @@ client.on("message", async msg => {
        const voiceChannel=msg.member.voice.channel;
        if(!voiceChannel) return msg.channel.send("You must be present in the voice channel to play music!");
        if(!serverQueue) return msg.channel.send("There is no song in the queue to skip");
+       msg.react('🛑');
        serverQueue.songs = [];
        serverQueue.connection.dispatcher.destroy();
        play(msg.guild,serverQueue.songs[0]);
@@ -176,11 +182,13 @@ client.on("message", async msg => {
 
     else if(args[0]===">np"){
        if(!serverQueue) return msg.channel.send("There is no song playing right now!");
+       msg.react('🎧');
        return msg.channel.send(`Now Playing: **${serverQueue.songs[0].title}**`);
    }
 
    else if(args[0]===">queue"){
        if(!serverQueue) return msg.channel.send("There is no song playing right now!");
+       msg.react('🤹‍♂️');
        var message=`____**Song Queue**____ \n \n***Now Playing*** : ${serverQueue.songs[0].title} \n \n` ;
        for(num in serverQueue.songs)
             {
@@ -194,18 +202,21 @@ client.on("message", async msg => {
    }
    else if(args[0]===">pause"){
        if(!serverQueue || !serverQueue.playing) return msg.channel.send("There is no song playing right now!");
+       msg.react('⏸️');
        serverQueue.playing=false;
        serverQueue.connection.dispatcher.pause();
        return msg.channel.send("The music is paused for you!");
    }
    else if(args[0]===">resume"){
        if(!serverQueue) return msg.channel.send("There is no song to play!");
+       msg.react('🥳');
        if(serverQueue.playing) return  msg.channel.send("The music is already playing!! Don't simply disturb my sleep -.-");
        serverQueue.playing=true;
        serverQueue.connection.dispatcher.resume();
        return msg.channel.send("The music has resumed for you!");
    }
    else if(args[0]===">help"){
+       msg.react('🥰');
        return msg.channel.send("**Echo** *Always echoing for you ;)* \n\n" +
            "**Commands :** \n" +
            "**>play [name or link]** or **>p[name or link]** *Play any song* \n" +
