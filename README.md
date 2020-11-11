@@ -1,1 +1,1 @@
-# <img src="/assets/img/portfolio/cd-player.png"  style="float: right;" />
+# <img src="/assets/img/portfolio/cd-player-mini.png"/> Echo
