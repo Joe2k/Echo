@@ -9,4 +9,4 @@
 
 ## :computer: Website
 
-***For more info and for features please click [here](https://joe2k.github.io/echo/)***
+***For more info and for features please click [here](https://joe2k.github.io/Echo/)***
