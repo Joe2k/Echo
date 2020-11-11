@@ -2,6 +2,11 @@
 
 # Echo
 
+
+## :microphone: About
+
 **A discord bot for playing music built with Node.js and Discord.js**
+
+## :computer: Website
 
 ***For more info and for features please click [here](joe2k.github.io/echo/)***
