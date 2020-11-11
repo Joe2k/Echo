@@ -2,3 +2,4 @@
 
 # Echo
 
+A discord bot for playing music built with Node.js and Discord.js
